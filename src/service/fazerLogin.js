@@ -13,7 +13,7 @@ export async function FazerLogin(req, res){
             return res.status(400).json({ erro: 'Usuário e senha são obrigatórios.' });
         }
 
-         const [consultarNoBanco] = await conexao.execute("SELECT id, usuario, senha FROM suporteticket.ticket WHERE usuario = ? AND senha = ?", [usuario, senha]);
+         const [consultarNoBanco] = await conexao.execute("SELECT id, usuario, senha FROM ticket WHERE usuario = ? AND senha = ?", [usuario, senha]);
          
          if(consultarNoBanco.length === 0){
             return res.status(401).json({erro: "Usuário ou senha inválidos."});
