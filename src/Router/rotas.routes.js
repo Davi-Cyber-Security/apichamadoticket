@@ -15,7 +15,7 @@ router.post('/status', retornandoStatus);
 router.post('/buscarnomedata', retornandoDadosPorNome_e_Data);
 router.post('/ticket', retornandoTicket);
 router.post('/login', FazerLogin);
-router.patch('/atendendoTicket',atendendoChamado);
+router.patch('/atendendoTicket', Login, atendendoChamado);
 router.patch('/cancelarTicket', cancelarTicket);
 
 router.use((req, res) =>{
