@@ -30,6 +30,8 @@ export async function FazerLogin(req, res){
 
         return res.status(200).json({ token });
     } catch (error) {
+        console.error("Erro no login: ", error);
+        console.error("Stack trace: ", error.stack)
         return res.status(500).json({ erro: 'Configuração de autenticação ausente no servidor.' });
     } finally{
         if(conexao) conexao.release();
