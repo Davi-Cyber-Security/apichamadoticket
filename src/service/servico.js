@@ -210,7 +210,7 @@ export async function atendendoChamado(req, res){
         if(status == "Resolvido" || status == "Nao Resolvido"){
             dataAtendimentoFinalizado = `${dataDoChamado()} - ${horaDoChamado()}`;
         }
-        if(validandoStatus(status)){
+        if(!validandoStatus(status)){
             return res.status(400).json({Mensagem: `Selecione a opção correta!`});
         }
         if(!respostaDoSuporte || validandoPalavroes(respostaDoSuporte)){
