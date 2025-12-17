@@ -14,6 +14,16 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 app.use(router);
 
+app.get('/api/cron', async (req, res) => {
+  try {
+    await Pool.query('SELECT 1');
+    res.json({ ok: true });
+  } catch (erro) {
+    console.error('Erro na rota /api/cron:', erro);
+    res.status(500).json({ ok: false, error: erro.message });
+  }
+});
+
 app.listen(3000, async () =>{
     const conexao = await Pool.getConnection();
     try{

@@ -12,6 +12,10 @@
   "author": "Davi Gabriel",
   "license": "ISC",
   "description": "API para gerenciamento de chamados e tickets, permitindo a criação, atualização e consulta de chamados através de endpoints RESTfull.",
+  "crons": [{
+    "path": "/api/cron",
+    "schedule": "*/2 * * * *"
+  }],
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^17.2.2",
